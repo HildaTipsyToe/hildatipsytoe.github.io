@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the tbAppbar function from the appbar library, for the Dart programming language.">
+  <title>tbAppbar function - appbar library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">ticketbox</a></li>
+    <li><a href="../presentation_views_widget_Appbar_appbar">presentation\views\widget\Appbar\appbar.dart</a></li>
+    <li class="self-crumb">tbAppbar function</li>
+  </ol>
+  <div class="self-name">tbAppbar</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="presentation_views_widget_Appbar_appbar&#47;presentation_views_widget_Appbar_appbar-library-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-function">tbAppbar</span> function 
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+<span class="returntype"><a href="https://api.flutter.dev/flutter/material/AppBar-class.html">AppBar</a></span>
+<span class="name ">tbAppbar</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="tbAppbar-param-leading"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">leading</span>, </span></li>
+<li><span class="parameter" id="tbAppbar-param-action"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">action</span>, </span></li>
+<li><span class="parameter" id="tbAppbar-param-overrideOnBackPressed"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a>?</span> <span class="parameter-name">overrideOnBackPressed</span>, </span></li>
+<li><span class="parameter" id="tbAppbar-param-context"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+</ol>})
+
+        
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">AppBar tbAppbar({
+  bool? leading,
+  bool? action,
+  VoidCallback? overrideOnBackPressed,
+  required BuildContext context,
+}) {
+  if (sl&lt;TBUser&gt;().userName.isEmpty) {
+    sl&lt;TBUser&gt;().userName = &#39;X&#39;;
+  }
+  return AppBar(
+    toolbarHeight: 75.0,
+    title: const Center(
+      child: Text(
+        &quot;B Ø D E K A S S E&quot;,
+        style: TextStyle(),
+      ),
+    ),
+    foregroundColor: Colors.white,
+    backgroundColor: const Color.fromARGB(255, 0, 61, 108),
+    leading: leading == null || leading == true
+        ? IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            ),
+            onPressed: overrideOnBackPressed ??
+                () {
+                  &#47;&#47; context.pop();
+                  context.replace(&#39;&#47;dashboard&#39;);
+                },
+          )
+        : const SizedBox(width: 30),
+    actions: [
+      action == null || action == true
+          ? PopupMenuButton&lt;String&gt;(
+              onSelected: (value) {
+                if (value == &#39;logout&#39;) {
+                  sl&lt;IAuthRepository&gt;().signOut();
+                  context.go(&#39;&#47;login&#39;);
+                } else if (value == &#39;profile&#39;) {
+                  context.pushNamed(&#39;profile&#39;);
+                }
+              },
+              itemBuilder: (BuildContext context) =&gt; [
+                PopupMenuItem(
+                  value: &#39;profile&#39;,
+                  child: Text(&#39;Profil&#39;),
+                ),
+                PopupMenuItem(
+                  value: &#39;logout&#39;,
+                  child: Text(&#39;Log ud&#39;),
+                ),
+              ],
+              child: Container(
+                width: 50,
+                height: 50,
+                margin: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.white, width: 2),
+                    borderRadius: const BorderRadius.all(Radius.circular(25))),
+                child: Center(
+                  child: Text(
+                    sl&lt;TBUser&gt;().userName.substring(0, 1),
+                    style: const TextStyle(fontSize: 32, color: Colors.white),
+                  ),
+                ),
+              ),
+            )
+          : const SizedBox(width: 30),
+    ],
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">ticketbox</a></li>
+    <li><a href="../presentation_views_widget_Appbar_appbar">appbar</a></li>
+    <li class="self-crumb">tbAppbar function</li>
+</ol>
+
+    <h5>appbar library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    ticketbox
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

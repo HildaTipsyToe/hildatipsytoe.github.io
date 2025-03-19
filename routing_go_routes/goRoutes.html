@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the goRoutes property from the go_routes library, for the Dart programming language.">
+  <title>goRoutes property - go_routes library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">ticketbox</a></li>
+    <li><a href="../routing_go_routes">routing\go_routes.dart</a></li>
+    <li class="self-crumb">goRoutes property</li>
+  </ol>
+  <div class="self-name">goRoutes</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button" title="Toggle brightness">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        dark_mode
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        light_mode
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="routing_go_routes&#47;routing_go_routes-library-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-top-level-property">goRoutes</span> top-level property 
+ 
+</h1></div>
+
+        <section class="multi-line-signature">
+          
+          <a href="https://pub.dev/documentation/go_router/14.8.1/go_router/GoRouter-class.html">GoRouter</a>
+          <span class="name ">goRoutes</span>
+          <div class="features"><span class="feature">getter/setter pair</span></div>
+
+        </section>
+        
+
+        
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">GoRouter goRoutes = GoRouter(
+  initialLocation: sl&lt;TBSettings&gt;().isLoggedIn ? &#39;&#47;&#39; : &#39;&#47;login&#39;,
+  routes: [
+    GoRoute(
+        path: &#39;&#47;&#39;,
+        builder: (BuildContext context, GoRouterState state) {
+          return DashboardView();
+        }),
+    GoRoute(
+      name: &#39;login&#39;,
+      path: &#39;&#47;login&#39;,
+      builder: (BuildContext context, GoRouterState state) {
+        return LoginView();
+      },
+    ),
+    GoRoute(
+      name: &#39;dashboard&#39;,
+      path: &#39;&#47;dashboard&#39;,
+      builder: (BuildContext context, GoRouterState state) {
+        return DashboardView();
+      },
+    ),
+    GoRoute(
+      name: &#39;fines&#39;,
+      path: &#39;&#47;fines&#39;,
+      builder: (BuildContext context, GoRouterState state) {
+        return FinesView(
+          groupId: state.uri.queryParameters[&#39;groupId&#39;]!,
+          roleId: state.uri.queryParameters[&#39;roleId&#39;]!,
+        );
+      },
+    ),
+    GoRoute(
+      name: &#39;group&#39;,
+      path: &#39;&#47;group&#39;,
+      builder: (BuildContext context, GoRouterState state) {
+        return GroupView(
+          receiverId: state.uri.queryParameters[&#39;receiverId&#39;]!,
+          groupId: state.uri.queryParameters[&#39;groupId&#39;]!,
+          groupName: state.uri.queryParameters[&#39;groupName&#39;]!,
+          saldo: state.uri.queryParameters[&#39;saldo&#39;]!,
+          roleId: state.uri.queryParameters[&#39;roleId&#39;]!,
+        );
+      },
+    ),
+    GoRoute(
+      name: &#39;members&#39;,
+      path: &#39;&#47;members&#39;,
+      builder: (BuildContext context, GoRouterState state){
+        return MembersView(
+          groupId: state.uri.queryParameters[&#39;groupId&#39;]!,
+          groupName: state.uri.queryParameters[&#39;groupName&#39;]!,
+          roleId: state.uri.queryParameters[&#39;roleId&#39;]!,
+        );
+      }
+      ),
+    GoRoute(
+      name: &#39;chat&#39;,
+      path: &#39;&#47;chat&#39;,
+      builder: (BuildContext context, GoRouterState state) {
+        return ChatView(
+          groupId: state.uri.queryParameters[&#39;groupId&#39;]!,
+          roleId: state.uri.queryParameters[&#39;roleId&#39;]!,
+        );
+      },
+    ),
+    GoRoute(
+      name: &#39;profile&#39;,
+      path: &#39;&#47;profile&#39;,
+      builder: (BuildContext context, GoRouterState state) {
+        return ProfileView();
+      },
+    ),
+    &#47;&#47;     ],
+    &#47;&#47;   ),
+  ],
+  errorBuilder: (context, state) =&gt; MainLayout(
+    state: state,
+    child: LoginView(),
+  ),
+);</code></pre>
+</section>
+
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">ticketbox</a></li>
+    <li><a href="../routing_go_routes">go_routes</a></li>
+    <li class="self-crumb">goRoutes property</li>
+</ol>
+
+    <h5>go_routes library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    ticketbox
+      1.0.0+1
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+
